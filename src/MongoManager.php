@@ -38,13 +38,13 @@ class MongoManager
     public function DocumentManager(): DocumentManager
     {
         if (! is_dir(BASE_PATH . '/runtime/Proxies')) {
-            mkdir(BASE_PATH . '/runtime/Proxies', 777, true);
+            mkdir(BASE_PATH . '/runtime/Proxies', 0777, true);
         }
         if (! is_dir(BASE_PATH . '/runtime/Hydrators')) {
-            mkdir(BASE_PATH . '/runtime/Hydrators', 777, true);
+            mkdir(BASE_PATH . '/runtime/Hydrators', 0777, true);
         }
         if (! is_dir(BASE_PATH . '/runtime/Documents')) {
-            mkdir(BASE_PATH . '/runtime/Documents', 777, true);
+            mkdir(BASE_PATH . '/runtime/Documents', 0777, true);
         }
         $config = new Configuration();
         $config->setProxyDir(BASE_PATH . '/runtime/Proxies'); // 设置代理类生成目录
