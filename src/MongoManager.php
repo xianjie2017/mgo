@@ -26,11 +26,11 @@ class MongoManager
     {
         if (! $this->client instanceof Client) {
             $this->client = new Client($config->get('mongodb.uri', 'mongodb://127.0.0.1:27017'), [
-                'maxPoolSize' => 50,
-                'minPoolSize' => 5,
-                'maxIdleTimeMS' => 5 * 60 * 1000,
-                'waitQueueMultiple' => 10,
-                'waitQueueTimeoutMS' => 1000,
+                'maxPoolSize' => $config->get('mongodb.maxPoolSize', 50),
+                'minPoolSize' => $config->get('mongodb.minPoolSize', 5),
+                'maxIdleTimeMS' => $config->get('mongodb.maxIdleTimeMS', 5 * 60 * 1000),
+                'waitQueueMultiple' => $config->get('mongodb.maxIdleTimeMS', 10),
+                'waitQueueTimeoutMS' => $config->get('mongodb.waitQueueTimeoutMS', 1000),
             ], ['typeMap' => DocumentManager::CLIENT_TYPEMAP]);
         }
     }
