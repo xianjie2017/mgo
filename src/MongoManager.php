@@ -13,7 +13,9 @@ namespace Kckj\Mgo;
 
 use Doctrine\ODM\MongoDB\Configuration;
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ODM\MongoDB\Hydrator\HydratorFactory;
 use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver;
+use Doctrine\ODM\MongoDB\Persisters\DocumentPersister;
 use Hyperf\Contract\ConfigInterface;
 use MongoDB\Client;
 
@@ -44,7 +46,7 @@ class MongoManager
             mkdir(BASE_PATH . '/runtime/Hydrators', 0777, true);
         }
         if (! is_dir(BASE_PATH . '/runtime/Documents')) {
-            mkdir(BASE_PATH . '/runtime/Documents', 0777, true);
+            mkdir(BASE_PATH . '/app/Mongo', 0777, true);
         }
         $config = new Configuration();
         $config->setProxyDir(BASE_PATH . '/runtime/Proxies'); // 设置代理类生成目录
@@ -52,7 +54,8 @@ class MongoManager
         $config->setHydratorDir(BASE_PATH . '/runtime/Hydrators');
         $config->setHydratorNamespace('Hydrators');
         $config->setDefaultDB('doctrine_odm');
-        $config->setMetadataDriverImpl(AnnotationDriver::create(BASE_PATH . '/runtime/Documents'));
+        $config->setMetadataDriverImpl(AnnotationDriver::create(BASE_PATH . '/app/Mongo'));
+
         return DocumentManager::create($this->client, $config);
     }
 }
