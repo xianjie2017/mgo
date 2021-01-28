@@ -10,7 +10,7 @@ use InvalidArgumentException;
 
 class NumericArray extends Type
 {
-    protected $type = 'int_array';
+    protected $type = 'numeric_array';
 
     use ClosureToPHP;
 

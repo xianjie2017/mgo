@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b29eb79d-33cf-4388-95d8-acbba69579cb" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Type/Arr.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Type/NumericArray.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Type/StringArray.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mgo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mgo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MongoManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MongoManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Type/NumericArray.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Type/NumericArray.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +127,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Type" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -145,7 +143,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611812904692</updated>
-      <workItem from="1611812905810" duration="599000" />
+      <workItem from="1611812905810" duration="1327000" />
     </task>
     <servers />
   </component>
