@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b29eb79d-33cf-4388-95d8-acbba69579cb" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MongoManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MongoManager.php" afterDir="false" />
     </list>
@@ -151,7 +150,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611812904692</updated>
       <workItem from="1611812905810" duration="2368000" />
-      <workItem from="1612236371849" duration="28000" />
+      <workItem from="1612236371849" duration="411000" />
     </task>
     <servers />
   </component>

@@ -47,7 +47,7 @@ class MongoManager
         if (!is_dir(BASE_PATH . '/runtime/Hydrators')) {
             mkdir(BASE_PATH . '/runtime/Hydrators', 0777, true);
         }
-        if (!is_dir(BASE_PATH . '/runtime/Documents')) {
+        if (!is_dir(BASE_PATH . '/app/Mongo')) {
             mkdir(BASE_PATH . '/app/Mongo', 0777, true);
         }
 
