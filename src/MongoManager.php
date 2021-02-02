@@ -41,6 +41,16 @@ class MongoManager
             ], ['typeMap' => DocumentManager::CLIENT_TYPEMAP]);
         }
 
+        if (!is_dir(BASE_PATH . '/runtime/Proxies')) {
+            mkdir(BASE_PATH . '/runtime/Proxies', 0777, true);
+        }
+        if (!is_dir(BASE_PATH . '/runtime/Hydrators')) {
+            mkdir(BASE_PATH . '/runtime/Hydrators', 0777, true);
+        }
+        if (!is_dir(BASE_PATH . '/runtime/Documents')) {
+            mkdir(BASE_PATH . '/app/Mongo', 0777, true);
+        }
+
         Type::addType('string_array', StringArray::class);
         Type::overrideType('string_array', StringArray::class);
         Type::registerType('string_array', StringArray::class);
@@ -71,15 +81,6 @@ class MongoManager
 
     public function DocumentManager(): DocumentManager
     {
-        if (!is_dir(BASE_PATH . '/runtime/Proxies')) {
-            mkdir(BASE_PATH . '/runtime/Proxies', 0777, true);
-        }
-        if (!is_dir(BASE_PATH . '/runtime/Hydrators')) {
-            mkdir(BASE_PATH . '/runtime/Hydrators', 0777, true);
-        }
-        if (!is_dir(BASE_PATH . '/runtime/Documents')) {
-            mkdir(BASE_PATH . '/app/Mongo', 0777, true);
-        }
         $config = new Configuration();
         $config->setProxyDir(BASE_PATH . '/runtime/Proxies'); // 设置代理类生成目录
         $config->setProxyNamespace('Proxies');
