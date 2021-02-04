@@ -29,6 +29,9 @@ class MongoManager
     /** @var Client */
     private $client;
 
+    /** @var ConfigInterface */
+    private $config;
+
     public function __construct(ConfigInterface $config)
     {
         if (!$this->client instanceof Client) {
@@ -77,6 +80,37 @@ class MongoManager
             'waitQueueMultiple' => $config->get('mongodb.maxIdleTimeMS', 10),
             'waitQueueTimeoutMS' => $config->get('mongodb.waitQueueTimeoutMS', 1000),
         ], ['typeMap' => DocumentManager::CLIENT_TYPEMAP]);
+    }
+
+    /**
+     * 更新配置
+     * @param ConfigInterface $config
+     */
+    public function config(ConfigInterface $config)
+    {
+        $isUpdate = false;
+        if ($config->get('mongodb.uri', 'mongodb://127.0.0.1:27017') != $this->config->get('mongodb.uri', 'mongodb://127.0.0.1:27017')) {
+            $isUpdate = true;
+        }
+        if ($config->get('mongodb.maxPoolSize', 50) != $this->config->get('mongodb.maxPoolSize', 50)) {
+            $isUpdate = true;
+        }
+        if ($config->get('mongodb.minPoolSize', 5) != $this->config->get('mongodb.minPoolSize', 5)) {
+            $isUpdate = true;
+        }
+        if ($config->get('mongodb.maxIdleTimeMS', 5 * 60 * 1000) != $this->config->get('mongodb.maxIdleTimeMS', 5 * 60 * 1000)) {
+            $isUpdate = true;
+        }
+        if ($config->get('mongodb.maxIdleTimeMS', 10) != $this->config->get('mongodb.maxIdleTimeMS', 10)) {
+            $isUpdate = true;
+        }
+        if ($config->get('mongodb.waitQueueTimeoutMS', 1000) != $this->config->get('mongodb.waitQueueTimeoutMS', 1000)) {
+            $isUpdate = true;
+        }
+        if ($isUpdate) {
+            $this->config = $config;
+            $this->ReConnect($config);
+        }
     }
 
     public function DocumentManager(): DocumentManager
