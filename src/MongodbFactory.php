@@ -9,6 +9,7 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+
 namespace Kckj\Mgo;
 
 use Hyperf\Contract\ConfigInterface;
@@ -21,13 +22,14 @@ class MongodbFactory
      */
     protected $proxies;
 
+    /** @var array */
+    protected $mongodbConfig;
+
     public function __construct(ConfigInterface $config)
     {
-        $mongodbConfig = $config->get('mongodb');
+        $this->mongodbConfig = $config->get('mongodb');
 
-        foreach ($mongodbConfig as $poolName => $item) {
-            $this->proxies[$poolName] = make(MongodbProxy::class, ['pool' => $poolName]);
-        }
+        $this->setPool();
     }
 
     /**
@@ -37,10 +39,26 @@ class MongodbFactory
     public function get(string $poolName = 'default')
     {
         $proxy = $this->proxies[$poolName] ?? null;
-        if (! $proxy instanceof MongodbProxy) {
+        if (!$proxy instanceof MongodbProxy) {
             throw new InvalidMongodbProxyException('Invalid Mongodb proxy.');
         }
 
         return $proxy;
+    }
+
+    protected function setPool()
+    {
+        foreach ($this->mongodbConfig as $poolName => $item) {
+            $this->proxies[$poolName] = make(MongodbProxy::class, ['pool' => $poolName]);
+        }
+    }
+
+    public function reconnect(ConfigInterface $config)
+    {
+        $mongodbConfig = $config->get('mongodb');
+        if (array_diff($mongodbConfig, $this->mongodbConfig)) {
+            $this->mongodbConfig = $mongodbConfig;
+            $this->setPool();
+        }
     }
 }
