@@ -44,6 +44,7 @@ class Mongodb
         if (!is_dir(BASE_PATH . '/app/Mongo')) {
             mkdir(BASE_PATH . '/app/Mongo', 0777, true);
         }
+
         if (!Type::hasType('string_array')) {
             Type::addType('string_array', StringArray::class);
             Type::overrideType('string_array', StringArray::class);
