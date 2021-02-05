@@ -58,7 +58,7 @@ class Mongodb
         Type::registerType('numeric_array', NumericArray::class);
     }
 
-    public function DocumentManager(string $defaultDB = 'xfbchain'): DocumentManager
+    public function __call($name, $arguments)
     {
         $hasContextConnection = Context::has($this->getContextKey());
         $connection = $this->getConnection($hasContextConnection);
@@ -68,12 +68,13 @@ class Mongodb
         $config->setProxyNamespace('Proxies');
         $config->setHydratorDir(BASE_PATH . '/runtime/Hydrators');
         $config->setHydratorNamespace('Hydrators');
-        $config->setDefaultDB($defaultDB);
+        $config->setDefaultDB('xfbchain');
         $config->setMetadataDriverImpl(AnnotationDriver::create(BASE_PATH . '/app/Mongo'));
 
         try {
             $connection = $connection->getConnection();
-            $result = DocumentManager::create($connection, $config);
+            $documentManager = DocumentManager::create($connection, $config);
+            $result = $documentManager->{$name}(...$arguments);
         } finally {
             // Release connection.
             if (! $hasContextConnection) {
