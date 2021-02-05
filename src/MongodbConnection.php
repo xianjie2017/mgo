@@ -6,11 +6,13 @@ namespace Kckj\Mgo;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Hyperf\Contract\ConnectionInterface;
+use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Pool\Connection;
 use Hyperf\Pool\Exception\ConnectionException;
 use Hyperf\Pool\Pool;
 use MongoDB\Client;
 use Psr\Container\ContainerInterface;
+use Throwable;
 
 class MongodbConnection extends Connection implements ConnectionInterface
 {
@@ -39,6 +41,23 @@ class MongodbConnection extends Connection implements ConnectionInterface
         $this->config = array_replace_recursive($this->config, $config);
 
         $this->reconnect();
+    }
+
+    /**
+     * @param $name
+     * @param $arguments
+     * @return mixed
+     * @throws Throwable+
+     */
+    public function __call($name, $arguments)
+    {
+        try {
+            $result = $this->connection->{$name}(...$arguments);
+        } catch (Throwable $exception) {
+            $result = $this->retry($name, $arguments, $exception);
+        }
+
+        return $result;
     }
 
     public function reconnect(): bool
@@ -74,6 +93,22 @@ class MongodbConnection extends Connection implements ConnectionInterface
 //        }
 
         return true;
+    }
+
+    protected function retry($name, $arguments, Throwable $exception)
+    {
+        $logger = $this->container->get(StdoutLoggerInterface::class);
+        $logger->warning(sprintf('Redis::__call failed, because ' . $exception->getMessage()));
+
+        try {
+            $this->reconnect();
+            $result = $this->connection->{$name}(...$arguments);
+        } catch (Throwable $exception) {
+            $this->lastUseTime = 0.0;
+            throw $exception;
+        }
+
+        return $result;
     }
 
     public function check(): bool

@@ -44,25 +44,30 @@ class Mongodb
         if (!is_dir(BASE_PATH . '/app/Mongo')) {
             mkdir(BASE_PATH . '/app/Mongo', 0777, true);
         }
+        if (!Type::hasType('string_array')) {
+            Type::addType('string_array', StringArray::class);
+            Type::overrideType('string_array', StringArray::class);
+            Type::registerType('string_array', StringArray::class);
+        }
 
-        Type::addType('string_array', StringArray::class);
-        Type::overrideType('string_array', StringArray::class);
-        Type::registerType('string_array', StringArray::class);
+        if (!Type::hasType('array')) {
+            Type::addType('array', Arr::class);
+            Type::overrideType('array', Arr::class);
+            Type::registerType('array', Arr::class);
+        }
 
-        Type::addType('array', Arr::class);
-        Type::overrideType('array', Arr::class);
-        Type::registerType('array', Arr::class);
-
-        Type::addType('numeric_array', NumericArray::class);
-        Type::overrideType('numeric_array', NumericArray::class);
-        Type::registerType('numeric_array', NumericArray::class);
+        if (!Type::hasType('numeric_array')) {
+            Type::addType('numeric_array', NumericArray::class);
+            Type::overrideType('numeric_array', NumericArray::class);
+            Type::registerType('numeric_array', NumericArray::class);
+        }
     }
 
     public function __call($name, $arguments)
     {
         $hasContextConnection = Context::has($this->getContextKey());
         $connection = $this->getConnection($hasContextConnection);
-
+var_dump("1111111111111");
         $config = new Configuration();
         $config->setProxyDir(BASE_PATH . '/runtime/Proxies'); // 设置代理类生成目录
         $config->setProxyNamespace('Proxies');
