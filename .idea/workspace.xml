@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b29eb79d-33cf-4388-95d8-acbba69579cb" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MongoManager.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MongodbFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MongodbFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pool/MongodbPool.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pool/MongodbPool.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,9 +138,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../services/es_service" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -168,7 +169,17 @@
       <workItem from="1612236371849" duration="1104000" />
       <workItem from="1612314710133" duration="485000" />
       <workItem from="1612433776167" duration="3667000" />
-      <workItem from="1612487558338" duration="13795000" />
+      <workItem from="1612487558338" duration="14617000" />
+      <workItem from="1612513936326" duration="279000" />
+      <workItem from="1612514361138" duration="93000" />
+      <workItem from="1612514473716" duration="108000" />
+      <workItem from="1612514599257" duration="38000" />
+      <workItem from="1612514654152" duration="103000" />
+      <workItem from="1612514773751" duration="55000" />
+      <workItem from="1612514845604" duration="89000" />
+      <workItem from="1612515022373" duration="50000" />
+      <workItem from="1612515092103" duration="27000" />
+      <workItem from="1612515133971" duration="674000" />
     </task>
     <servers />
   </component>
@@ -188,6 +199,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="832" y="418" key="#Custom_Plugin_Repositories" timestamp="1612514700435">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="832" y="418" key="#Custom_Plugin_Repositories/0.0.1920.1040@0.0.1920.1040" timestamp="1612514700435" />
+    <state x="970" y="635" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612514198087">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="970" y="635" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1612514198087" />
     <state x="760" y="200" key="#com.intellij.ide.util.MemberChooser" timestamp="1612503836484">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -204,14 +223,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="719" y="432" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1612496888976" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1612487670345">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1612515173167">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1612487670345" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1612515173167" />
     <state x="758" y="240" key="NewPhpClassDialog" timestamp="1612506504563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="758" y="240" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612506504563" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1612515166189">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1612515166189" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1611813275709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
