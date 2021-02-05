@@ -34,7 +34,7 @@ var_dump($mongodbConfig);
      * @param string $poolName
      * @return MongodbProxy
      */
-    public function get(string $poolName)
+    public function get(string $poolName = 'default')
     {var_dump($this->proxies);
         $proxy = $this->proxies[$poolName] ?? null;
         var_dump($proxy);
