@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b29eb79d-33cf-4388-95d8-acbba69579cb" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MongodbConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MongodbConnection.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MongodbFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MongodbFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,7 +178,7 @@
       <workItem from="1612514845604" duration="89000" />
       <workItem from="1612515022373" duration="50000" />
       <workItem from="1612515092103" duration="27000" />
-      <workItem from="1612515133971" duration="2549000" />
+      <workItem from="1612515133971" duration="3072000" />
     </task>
     <servers />
   </component>

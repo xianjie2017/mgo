@@ -53,11 +53,10 @@ class MongodbFactory
         }
     }
 
-    public function reconnect(ConfigInterface $config)
+    public function reconnect(array $config)
     {
-        $mongodbConfig = $config->get('mongodb');
-        if (array_diff($mongodbConfig, $this->mongodbConfig)) {
-            $this->mongodbConfig = $mongodbConfig;
+        if (array_diff($config, $this->mongodbConfig)) {
+            $this->mongodbConfig = $config;
             $this->setPool();
         }
     }
