@@ -20,7 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b29eb79d-33cf-4388-95d8-acbba69579cb" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exception/InvalidMongodbConnectionException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exception/InvalidMongodbProxyException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exception/MongodbNotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Frequency.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Mongodb.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MongodbConnection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MongodbFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MongodbProxy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pool/MongodbPool.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pool/PoolFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mgo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mgo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +127,17 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/swow/swow" />
       <path value="$PROJECT_DIR$/vendor/swoole/ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/hyperf/utils" />
+      <path value="$PROJECT_DIR$/vendor/hyperf/engine" />
+      <path value="$PROJECT_DIR$/vendor/hyperf/contract" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/hyperf/pool" />
+      <path value="$PROJECT_DIR$/vendor/hyperf/di" />
+      <path value="$PROJECT_DIR$/vendor/roave/signature" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/roave/better-reflection" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ngXrH7bS5hc4wNRXvo14IOK3BN" />
@@ -125,12 +149,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../constants" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspace\project\plugs\mgo\src" />
+      <recent name="E:\workspace\project\plugs\mgo\src\Pool" />
       <recent name="E:\workspace\project\plugs\mgo\src\Type" />
     </key>
   </component>
@@ -152,7 +179,7 @@
       <workItem from="1612236371849" duration="1104000" />
       <workItem from="1612314710133" duration="485000" />
       <workItem from="1612433776167" duration="3667000" />
-      <workItem from="1612487558338" duration="770000" />
+      <workItem from="1612487558338" duration="9272000" />
     </task>
     <servers />
   </component>
@@ -172,10 +199,30 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="760" y="200" key="#com.intellij.ide.util.MemberChooser" timestamp="1612503836484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="760" y="200" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1612503836484" />
+    <state x="717" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1612506905205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="717" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612506905205" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1612507475700">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612507475700" />
+    <state x="719" y="432" key="ComposerInitDialogKey" timestamp="1612496888976">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="719" y="432" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1612496888976" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1612487670345">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1612487670345" />
+    <state x="758" y="240" key="NewPhpClassDialog" timestamp="1612506504563">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="758" y="240" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612506504563" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1611813275709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
