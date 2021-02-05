@@ -59,7 +59,7 @@ class MongodbFactory
      */
     public function update(array $config)
     {
-        if (array_diff($config, $this->mongodbConfig)) {
+        if ($config != $this->mongodbConfig) {
             $this->mongodbConfig = $config;
             $this->setPool();
         }
