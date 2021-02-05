@@ -24,18 +24,20 @@ class MongodbFactory
     public function __construct(ConfigInterface $config)
     {
         $mongodbConfig = $config->get('mongodb');
-
+var_dump($mongodbConfig);
         foreach ($mongodbConfig as $poolName => $item) {
             $this->proxies[$poolName] = make(MongodbProxy::class, ['pool' => $poolName]);
         }
     }
 
     /**
+     * @param string $poolName
      * @return MongodbProxy
      */
     public function get(string $poolName)
-    {
+    {var_dump($this->proxies);
         $proxy = $this->proxies[$poolName] ?? null;
+        var_dump($proxy);
         if (! $proxy instanceof MongodbProxy) {
             throw new InvalidMongodbProxyException('Invalid Mongodb proxy.');
         }
