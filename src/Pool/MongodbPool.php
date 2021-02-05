@@ -35,7 +35,7 @@ class MongodbPool extends Pool
     {
         $this->name = $name;
         $config = $container->get(ConfigInterface::class);
-        $key = sprintf('redis.%s', $this->name);
+        $key = sprintf('mongodb.%s', $this->name);
         if (! $config->has($key)) {
             throw new \InvalidArgumentException(sprintf('config[%s] is not exist!', $key));
         }

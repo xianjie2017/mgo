@@ -35,9 +35,9 @@ var_dump($mongodbConfig);
      * @return MongodbProxy
      */
     public function get(string $poolName = 'default')
-    {var_dump($this->proxies);
+    {var_dump(count($this->proxies));
         $proxy = $this->proxies[$poolName] ?? null;
-        var_dump($proxy);
+        var_dump(isset($this->proxies[$poolName]) ? 'yes' : 'no');
         if (! $proxy instanceof MongodbProxy) {
             throw new InvalidMongodbProxyException('Invalid Mongodb proxy.');
         }
