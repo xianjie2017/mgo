@@ -48,6 +48,7 @@ class MongodbFactory
 
     protected function setPool()
     {
+        $this->proxies = [];
         foreach ($this->mongodbConfig as $poolName => $item) {
             $this->proxies[$poolName] = make(MongodbProxy::class, ['pool' => $poolName]);
         }

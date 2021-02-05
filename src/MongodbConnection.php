@@ -33,15 +33,7 @@ class MongodbConnection extends Connection implements ConnectionInterface
         'waitQueueMultiple' => 10,
         'waitQueueTimeoutMS' => 1000,
         'connect_timeout' => '3s',
-        'read_write_timeout' => '60s',
-        'pool' => [
-            'min_connections' => 1,
-            'max_connections' => 10,
-            'connect_timeout' => 10.0,
-            'wait_timeout' => 3.0,
-            'heartbeat' => -1,
-            'max_idle_time' => (float) env('REDIS_MAX_IDLE_TIME', 60),
-        ],
+        'read_write_timeout' => '60s'
     ];
 
     /**
