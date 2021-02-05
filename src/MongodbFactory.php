@@ -53,7 +53,7 @@ class MongodbFactory
         }
     }
 
-    public function reconnect(array $config)
+    public function update(array $config)
     {
         if (array_diff($config, $this->mongodbConfig)) {
             $this->mongodbConfig = $config;
