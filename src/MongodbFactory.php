@@ -20,7 +20,7 @@ class MongodbFactory
     /**
      * @var MongodbProxy[]
      */
-    protected $proxies;
+    protected $proxies = [];
 
     /** @var array */
     protected $mongodbConfig;
@@ -28,8 +28,9 @@ class MongodbFactory
     public function __construct(ConfigInterface $config)
     {
         $this->mongodbConfig = $config->get('mongodb');
-
-        $this->setPool();
+        foreach ($this->mongodbConfig as $poolName => $item) {
+            $this->proxies[$poolName] = make(MongodbProxy::class, ['pool' => $poolName]);
+        }
     }
 
     /**
@@ -44,25 +45,5 @@ class MongodbFactory
         }
 
         return $proxy;
-    }
-
-    protected function setPool()
-    {
-        $this->proxies = [];
-        foreach ($this->mongodbConfig as $poolName => $item) {
-            $this->proxies[$poolName] = make(MongodbProxy::class, ['pool' => $poolName]);
-        }
-    }
-
-    /**
-     * 更新配置
-     * @param array $config
-     */
-    public function update(array $config)
-    {
-        if ($config != $this->mongodbConfig) {
-            $this->mongodbConfig = $config;
-            $this->setPool();
-        }
     }
 }

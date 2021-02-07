@@ -8,6 +8,7 @@ use Doctrine\ODM\MongoDB\Configuration;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver;
 use Doctrine\ODM\MongoDB\Types\Type;
+use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\ConnectionInterface;
 use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Pool\Connection;
@@ -41,10 +42,14 @@ class MongodbConnection extends Connection implements ConnectionInterface
      */
     protected $connection;
 
-    public function __construct(ContainerInterface $container, Pool $pool, array $config)
+    /** @var string */
+    protected $poolName;
+
+    public function __construct(ContainerInterface $container, Pool $pool, array $config, string $poolName = 'default')
     {
         parent::__construct($container, $pool);
         $this->config = array_replace_recursive($this->config, $config);
+        $this->poolName = $poolName;
 
         if (!is_dir(BASE_PATH . '/runtime/Proxies')) {
             mkdir(BASE_PATH . '/runtime/Proxies', 0777, true);
@@ -142,7 +147,7 @@ class MongodbConnection extends Connection implements ConnectionInterface
     protected function retry($name, $arguments, Throwable $exception)
     {
         $logger = $this->container->get(StdoutLoggerInterface::class);
-        $logger->warning(sprintf('Redis::__call failed, because ' . $exception->getMessage()));
+        $logger->warning(sprintf('Mongodb::__call failed, because ' . $exception->getMessage()));
 
         try {
             $this->reconnect();
@@ -157,6 +162,19 @@ class MongodbConnection extends Connection implements ConnectionInterface
 
     public function check(): bool
     {
+        // 配置更新检查
+        $key = sprintf('mongodb.%s', $this->poolName);
+        $config = $this->container->get(ConfigInterface::class)->get($key);
+        if (! $config->has($key)) {
+            throw new \InvalidArgumentException(sprintf('config[%s] is not exist!', $key));
+        }
+
+        if ($this->config != $config) {
+            $this->config = $config;
+            return false;
+        }
+
+        // 最大空闲时间检查
         $maxIdleTime = $this->pool->getOption()->getMaxIdleTime();
         $now = microtime(true);
         if ($now > $maxIdleTime + $this->lastUseTime) {
