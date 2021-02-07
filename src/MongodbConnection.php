@@ -164,13 +164,14 @@ class MongodbConnection extends Connection implements ConnectionInterface
     {
         // 配置更新检查
         $key = sprintf('mongodb.%s', $this->poolName);
-        $config = $this->container->get(ConfigInterface::class)->get($key);
+        $config = $this->container->get(ConfigInterface::class);
         if (! $config->has($key)) {
             throw new \InvalidArgumentException(sprintf('config[%s] is not exist!', $key));
         }
 
-        if ($this->config != $config) {
-            $this->config = $config;
+        $mongodbConfig = $config->get($key);
+        if ($this->config != $mongodbConfig) {
+            $this->config = $mongodbConfig;
             return false;
         }
 

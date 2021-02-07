@@ -22,7 +22,6 @@
     <list default="true" id="b29eb79d-33cf-4388-95d8-acbba69579cb" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MongodbConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MongodbConnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MongodbFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MongodbFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +185,7 @@
       <workItem from="1612662489043" duration="23000" />
       <workItem from="1612662528001" duration="123000" />
       <workItem from="1612662669235" duration="104000" />
-      <workItem from="1612662792282" duration="3143000" />
+      <workItem from="1612662792282" duration="3810000" />
     </task>
     <servers />
   </component>
